@@ -13,11 +13,13 @@ public class ChatApp {
 	}
 	public ChatApp() {
 		int response = JOptionPane.showConfirmDialog(null, "Would you like to host a connection?", "Chat", JOptionPane.YES_NO_OPTION);
+		 server = new Server();
 		if(response==JOptionPane.YES_OPTION) {
-			 server = new Server();
-			server.start();
+			 System.out.println(server.getIPAddress());
+			 server.start();
 		}
 		else {
+			 System.out.println(server.getIPAddress());
 			 client = new Client(server.getIPAddress(),8080);
 			 client.start();
 			
